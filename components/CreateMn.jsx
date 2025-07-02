@@ -99,10 +99,12 @@ const CreateMn = () => {
                                     key={x}
                                     onClick={() => setOpen(!open)}
                                 >
-                                    PrivateKey:{' '}
-                                    <span className={open ? 'block' : 'hidden'}>
-                                        {x.privateKey}
-                                    </span>{' '}
+                                    PrivateKey:
+                                    {open ? (
+                                        <span>{x.privateKey}</span>
+                                    ) : (
+                                        <span>* * * * * * *</span>
+                                    )}
                                 </p>
                             </div>
                         ))}
