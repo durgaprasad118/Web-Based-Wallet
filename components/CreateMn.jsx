@@ -43,7 +43,7 @@ const CreateMn = () => {
     }
     return (
         <div>
-            <div>
+            <div className="flex gap-4">
                 <button
                     className="px-4 py-2 bg-red-500 rounded-lg hover:bg-red-800"
                     onClick={createxyz}
@@ -52,10 +52,10 @@ const CreateMn = () => {
                 </button>
                 {a.length > 0 && (
                     <button
-                        className="px-4 py-2 bg-blue-300 hover:bg-blue-500"
+                        className="px-4 rounded-lg py-2 bg-blue-300 hover:bg-blue-500"
                         onClick={() => getSolanakeypair(seed, num)}
                     >
-                        Genearte Mnemonic
+                        Genearte New Pair
                     </button>
                 )}
             </div>
@@ -86,7 +86,7 @@ const CreateMn = () => {
                             <div className="flex flex-col gap-2 border border-black">
                                 <p className="text-center">
                                     {' '}
-                                    Key Number: {x.id}
+                                    Key Number: {x.id + 1}
                                 </p>
                                 <p
                                     className="bg-blue-200 rounded-md px-2 py-0.5 flex items-center justify-center "
