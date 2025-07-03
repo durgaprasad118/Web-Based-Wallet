@@ -1,6 +1,5 @@
 'use client';
 import { useEffect } from 'react';
-import CreateMn from '../components/CreateMn.jsx';
 import Navbar from '@/components/Navbar.jsx';
 import { MnemonicProvider } from '@/store/context.js';
 import DisplayMnemonics from '@/components/DisplayMnemonics.jsx';

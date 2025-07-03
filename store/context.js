@@ -7,6 +7,7 @@ export function MnemonicProvider({ children }) {
     const [keys, setKeys] = useState([]);
     const [seed, setSeed] = useState(null);
     const [count, setCount] = useState(0);
+    const [ethCount, setethCount] = useState(0);
     const value = {
         isGenerated,
         setIsGenerated,
@@ -17,7 +18,9 @@ export function MnemonicProvider({ children }) {
         seed,
         setSeed,
         count,
-        setCount
+        setCount,
+        ethCount,
+        setethCount
     };
 
     return (

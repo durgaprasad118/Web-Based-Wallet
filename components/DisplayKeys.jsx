@@ -1,39 +1,21 @@
 import { useMnemonic } from '@/store/context';
-import { useState } from 'react';
+import Choose from './Choose';
+import KeyItem from './KeyItem';
 const DisplayKeys = () => {
-    const { keys } = useMnemonic();
-    const [open, setOpen] = useState(false);
+    const { keys, seed } = useMnemonic();
     return (
-        <div className=" mt-8 p-2 w-full h-fit ">
-            <div className="flex justify-center bg-cyan-100 py-4 rounded-xl flex-col items-center">
-                <div className="flex flex-col gap-2">
+        <div className=" mt-8 py-2 flex flex-col items-center  h-fit ">
+            {!seed && (
+                <h1 className="font-medium text-xl  animate-bounce">
+                    {' '}
+                    Not Generated at Click on the top right button to generate
+                </h1>
+            )}
+            {seed && <Choose />}
+            <div className="flex  h-[60vh] w-full overflow-y-scroll justify-center mt-4  py-4 rounded-xl flex-col items-center">
+                <div className="flex h-full flex-col gap-2 ">
                     {keys.length !== 0 &&
-                        keys.map((x) => (
-                            <div className="flex flex-col gap-2 border border-black">
-                                <p className="text-center">
-                                    {' '}
-                                    Key Number: {x.id + 1}
-                                </p>
-                                <p
-                                    className="bg-blue-200 rounded-md px-2 py-0.5 flex items-center justify-center "
-                                    key={x.id}
-                                >
-                                    PublicKey: {x.address}
-                                </p>
-                                <p
-                                    className="bg-amber-200 rounded-md px-2 py-0.5 flex items-center justify-center "
-                                    key={x}
-                                    onClick={() => setOpen(!open)}
-                                >
-                                    PrivateKey:
-                                    {open ? (
-                                        <span>{x.privateKey}</span>
-                                    ) : (
-                                        <span>* * * * * * *</span>
-                                    )}
-                                </p>
-                            </div>
-                        ))}
+                        keys.map((x) => <KeyItem key={x.id} x={x} />)}
                 </div>
             </div>
         </div>

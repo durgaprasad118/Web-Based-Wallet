@@ -7,7 +7,7 @@ const DisplayMnemonics = () => {
     const [show, setShow] = useState(false);
     return (
         <div className=" mt-8 p-2 w-full h-fit ">
-            <div className="flex justify-center bg-cyan-100 py-4 rounded-xl flex-col items-center">
+            <div className="flex justify-center  py-4 rounded-xl flex-col items-center">
                 {mnemonicArray.length > 0 &&
                     (show ? (
                         <p
