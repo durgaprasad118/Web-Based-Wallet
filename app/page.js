@@ -1,8 +1,21 @@
+'use client';
+import { useEffect } from 'react';
 import CreateMn from '../components/CreateMn.jsx';
+import Navbar from '@/components/Navbar.jsx';
+import { MnemonicProvider } from '@/store/context.js';
+import DisplayMnemonics from '@/components/DisplayMnemonics.jsx';
+import DisplayKeys from '@/components/DisplayKeys.jsx';
 export default function Home() {
+    useEffect(() => {
+        localStorage.setItem('isMnemonicGenerated', false);
+    }, []);
     return (
-        <div>
-            <CreateMn />
+        <div className="h-[100vh] w-full p-2">
+            <MnemonicProvider>
+                <Navbar />
+                <DisplayMnemonics />
+                <DisplayKeys />
+            </MnemonicProvider>
         </div>
     );
 }

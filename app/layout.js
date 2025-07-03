@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body
-                className={`h-[80vh] container flex justify-center my-4 w-full ${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`h-[100vh] w-[100vw]   ${geistSans.variable} ${geistMono.variable} antialiased`}
             >
                 {children}
             </body>
