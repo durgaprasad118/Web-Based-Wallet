@@ -4,6 +4,7 @@ import { Keypair } from '@solana/web3.js';
 import bs58 from 'bs58';
 import nacl from 'tweetnacl';
 import { ethers } from 'ethers';
+import { getBalance } from './getBalance';
 function useKeyPair() {
     const {
         setKeys,
@@ -23,12 +24,14 @@ function useKeyPair() {
             const val = Keypair.fromSecretKey(secret);
             const publicK = val.publicKey.toBase58();
             const privateK = bs58.encode(val.secretKey);
+            const balance = getBalance('sol', publicK);
             setKeys([
                 ...keys,
                 {
                     id: publicK.slice(0, 4),
                     address: publicK,
                     privateKey: privateK,
+                    balance,
                     type: typeArg
                 }
             ]);
@@ -39,12 +42,14 @@ function useKeyPair() {
             const str = mnemonicArray.join(' ');
             const mnemonic = ethers.Mnemonic.fromPhrase(str);
             const wallet = ethers.HDNodeWallet.fromMnemonic(mnemonic, path);
+            const balance = getBalance('eth', wallet.address);
             setKeys([
                 ...keys,
                 {
                     id: wallet.address.slice(2, 6),
                     privateKey: wallet.privateKey,
                     address: wallet.address,
+                    balance,
                     type: typeArg
                 }
             ]);

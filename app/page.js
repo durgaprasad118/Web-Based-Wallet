@@ -9,12 +9,14 @@ export default function Home() {
         localStorage.setItem('isMnemonicGenerated', false);
     }, []);
     return (
-        <div className="h-[100vh] w-full p-2">
-            <MnemonicProvider>
-                <Navbar />
-                <DisplayMnemonics />
-                <DisplayKeys />
-            </MnemonicProvider>
+        <div className="h-[100vh] w-full flex flex-col items-center p-2">
+            <div className="w-3/4">
+                <MnemonicProvider>
+                    <Navbar />
+                    <DisplayMnemonics />
+                    <DisplayKeys />
+                </MnemonicProvider>
+            </div>
         </div>
     );
 }

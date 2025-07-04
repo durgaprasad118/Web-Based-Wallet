@@ -12,7 +12,7 @@ const DisplayKeys = () => {
                 </h1>
             )}
             {seed && <Choose />}
-            <div className="flex  h-[60vh] w-full overflow-y-scroll justify-center mt-4  py-4 rounded-xl flex-col items-center">
+            <div className="flex  w-full h-fit    justify-center mt-4  py-4 rounded-xl flex-col items-center">
                 <div className="flex h-full flex-col gap-2 ">
                     {keys.length !== 0 &&
                         keys.map((x) => <KeyItem key={x.id} x={x} />)}
