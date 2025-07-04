@@ -28,6 +28,7 @@ async function getBalance(type, address) {
         return answer;
     } catch (error) {
         console.log(error);
+        return '';
     }
 }
 

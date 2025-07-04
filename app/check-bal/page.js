@@ -26,10 +26,14 @@ const CheckBal = () => {
         setBalance('');
         try {
             const value = await getBalance(type, val);
+            if (!value && value !== 0) {
+                throw new Error('Empty balance or invalid response');
+            }
             setBalance(value);
         } catch (err) {
-            console.log(err);
             toast.error('Invalid address');
+            setVal('');
+            console.log(err);
             setError('Invalid address');
         } finally {
             setLoading(false);

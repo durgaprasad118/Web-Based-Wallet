@@ -7,11 +7,10 @@ const KeyItem = ({ x }) => {
         <div
             className={`
         ${x.type === 'sol' ? 'bg-purple-100' : 'bg-gray-100'}
-        w-full p-6 rounded-xl shadow-md flex flex-col space-y-4 mb-6
+        !w-full p-6 rounded-xl shadow-md flex flex-col  space-y-4 mb-6
         transition-shadow duration-200 hover:shadow-lg
       `}
         >
-            {/* Address */}
             <div>
                 <h3 className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1">
                     Address
@@ -21,7 +20,6 @@ const KeyItem = ({ x }) => {
                 </p>
             </div>
 
-            {/* Private Key with toggle */}
             <div>
                 <h3 className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1 flex items-center justify-between">
                     Private Key
@@ -41,9 +39,7 @@ const KeyItem = ({ x }) => {
                     }`}
                     style={{ userSelect: open ? 'text' : 'none' }}
                 >
-                    {open
-                        ? x.privateKey
-                        : '••••••••••••••••••••••••••••••••••••••••••'}
+                    {open ? x.privateKey : '*'.repeat(88)}
                 </p>
             </div>
 
